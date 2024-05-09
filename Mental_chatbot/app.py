@@ -20,6 +20,8 @@ import pickle
 
 
 # Initialize the Flask app
+
+# Initialize the Flask app
 app = Flask(__name__)
 
 # Load the trained model
@@ -82,11 +84,21 @@ def getResponse(ints, intents_json):
 # List of greetings and exit commands
 greetings = ['hi', 'hello', 'hey', 'good morning', 'good afternoon', 'good evening']
 exit_commands = ["quit", "pause", "exit", "goodbye", "bye", "later", "stop"]
+@app.route('/')
+def hello_world():
+    return 'Hello, Wo!'
+
 
 # Route for chatbot response
 @app.route('/chatbot', methods=['POST'])
 def chatbot_response():
-    user_input = request.json['message']
+    if request.json is None:
+        return jsonify({'error': 'No JSON data received'}), 400
+    
+    user_input = request.json.get('message')
+    
+    if user_input is None:
+        return jsonify({'error': 'No message provided in JSON data'}), 400
     
     if user_input.lower() in greetings:
         return jsonify({'response': "Hello! How can I assist you today?"})
@@ -96,10 +108,9 @@ def chatbot_response():
     ints = predict_class(user_input, model)
     res = getResponse(ints, intents)
     return jsonify({'response': res})
-
 # Run the Flask app
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+    app.run()
 
 
 # In[ ]:
