@@ -1,6 +1,7 @@
-guinicorn
+gunicorn==19.7.1
 numpy
 nltk
+nltk.stem
 random
 tensorflow
 json
