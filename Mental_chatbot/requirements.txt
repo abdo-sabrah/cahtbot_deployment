@@ -4,6 +4,7 @@ nltk
 nltk.stem
 random
 tensorflow
+keras
 json
 nltk.stem
 pickle
