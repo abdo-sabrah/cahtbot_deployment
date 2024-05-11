@@ -1,8 +1,4 @@
-guinicorn
-numpy
-nltk
-random
-tensorflow
-json
-nltk.stem
-pickle
+guinicorn ==2.16.1
+numpy ==1.26.4
+nltk == 3.7
+tensorflow ==2.16.1
