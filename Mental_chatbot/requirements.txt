@@ -1,3 +1,4 @@
+gunicorn
 numpy
 nltk
 nltk.stem
