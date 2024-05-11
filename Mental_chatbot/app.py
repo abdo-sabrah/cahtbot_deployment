@@ -111,8 +111,7 @@ def chatbot_response():
     return jsonify({'response': res})
 # Run the Flask app
 if __name__ == '__main__':
-    app.run()
-
+    app.run(host='0.0.0.0', port=os.getenv('PORT', 5000))
 
 # In[ ]:
 
