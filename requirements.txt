@@ -1,0 +1,8 @@
+guinicorn
+numpy
+nltk
+random
+tensorflow
+json
+nltk.stem
+pickle
